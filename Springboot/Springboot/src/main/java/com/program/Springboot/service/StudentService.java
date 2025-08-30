@@ -3,6 +3,8 @@ package com.program.Springboot.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.program.Springboot.model.Student;
 
 public interface StudentService {
@@ -26,4 +28,6 @@ public interface StudentService {
     // DELETE: /students/{id}
     // Success: 204 NO CONTENT | Fail: 404 NOT FOUND
     boolean deleteStudent(Long id);
+
+    List<Student> getAllStudents(Student student);
 }

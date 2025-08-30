@@ -23,7 +23,6 @@ public class StudentController {
     private final StudentService studentService;
 
     // Constructor Injection (best practice)
-     @Autowired
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
