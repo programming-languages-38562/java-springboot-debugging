@@ -19,11 +19,11 @@ import com.program.Springboot.service.StudentService;
 @RestController
 @RequestMapping("/api")  // All endpoints will start with /api
 public class StudentController {
-
+   @Autowired
     private final StudentService studentService;
 
     // Constructor Injection (best practice)
-     @Autowired
+     
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
