@@ -11,7 +11,8 @@ import org.springframework.stereotype.Service;
 import com.program.Springboot.model.Student;
 import com.program.Springboot.service.StudentService;
 
-public class StudentServiceImpl extends StudentService {
+@Service
+public class StudentServiceImpl implements StudentService {
 
     // Simulated database (key = pkStudentID, value = Student object)
     private final Map<Long, Student> studentDB = new HashMap<>();
@@ -30,7 +31,9 @@ public class StudentServiceImpl extends StudentService {
 
     @Override
     public Student addStudent(Student student) {
-        // store student using their ID as the key
+      
+
+        studentDB.put(student.getPkStudentID(), student);
         return student;
     }
 
@@ -54,9 +57,9 @@ public class StudentServiceImpl extends StudentService {
     public boolean deleteStudent(Long id) {
         if (studentDB.containsKey(id)) {
             studentDB.remove(id);
-            return false;
+            return true;
         }
-        return true; 
+        return false; 
     }
     
 }
