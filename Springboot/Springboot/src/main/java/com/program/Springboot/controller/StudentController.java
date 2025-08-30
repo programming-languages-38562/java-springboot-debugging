@@ -20,10 +20,15 @@ import com.program.Springboot.service.StudentService;
 @RequestMapping("/api")  // All endpoints will start with /api
 public class StudentController {
 
+
+    @Autowired  
     private final StudentService studentService;
 
+
+
     // Constructor Injection (best practice)
-     @Autowired
+     
+
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
@@ -43,7 +48,7 @@ public class StudentController {
     // POST /api/students → Add new student
     @PostMapping("/students")
     public Student addStudent(@RequestBody Student student) {
-        return studentService.addStudent(student);
+        return studentService.addStudent(studentService.addStudent(student));
     }
 
     // PUT /api/students/{id} → Update student
